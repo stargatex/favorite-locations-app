@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fav Locations</string>
+    <string name="title_activity_maps">Map Locator</string>
+    <string name="title_activity_main">Location List</string>
+    <string name="location_txt">Location</string>
+    <string name="latitude_txt">Latitude</string>
+    <string name="longitude_txt">Longitude</string>
+</resources>
