@@ -1,3 +1,3 @@
 # favorite-locations-app
-favorite location app with firebase
+basic favorite location app with firebase
 
