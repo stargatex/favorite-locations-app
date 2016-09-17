@@ -26,7 +26,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
+    
+    private static final String TAG = "MainActivityLog";
     Firebase firebase;
     private RecyclerView.LayoutManager layoutManager;
     private FirebaseRecyclerAdapter<User, RecycleViewHolder> recyclerAdapter;
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private static void lookItem(Double lat, Double lng, View v) {
 
         Intent intent = new Intent(v.getContext(), MapsActivity.class);
-        intent.putExtra("lat", lat);
-        intent.putExtra("lng", lng);
+        intent.putExtra(Constants.LOCATION_LAT, lat);
+        intent.putExtra(Constants.LOCATION_LNG, lng);
         v.getContext().startActivity(intent);
 
     }
@@ -87,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Log.i("LJ_ad", label);
-                    Log.i("LJ_ad", s.toString());
+                    Log.i(TAG, label);
+                    Log.i(TAG, s.toString());
                     recycleViewHolder.textView1.setText(label);
                     recycleViewHolder.textViewLat.setText(s.getL().get(0).toString());
                     recycleViewHolder.textViewLng.setText(s.getL().get(1).toString());
