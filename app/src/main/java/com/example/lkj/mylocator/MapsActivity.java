@@ -35,7 +35,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener, LocationListener {
-
+    
+    private static final String TAG = "MapsActivityLog";
     LocationManager locationManager;
     String provider;
     Double mLat, mLng;
@@ -53,10 +54,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         Intent i = getIntent();
-        mLat = i.getDoubleExtra("lat", 0);
-        mLng = i.getDoubleExtra("lng", 0);
-        Log.i("LJ_Place_lat", Double.toString(i.getDoubleExtra("lat", 0)));
-        Log.i("LJ_Place_lng", Double.toString(i.getDoubleExtra("lng", 0)));
+        mLat = i.getDoubleExtra(Constants.LOCATION_LAT, 0);
+        mLng = i.getDoubleExtra(Constants.LOCATION_LNG, 0);
+        Log.i(TAG, Double.toString(mLat));
+        Log.i(TAG, Double.toString(mLng));
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         provider = locationManager.getBestProvider(new Criteria(), false);
@@ -122,7 +123,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapLongClick(LatLng latLng) {
 
         String label = geoCoderLocationData(latLng);
-        Log.i("LJ_ad", label);
+        Log.i(TAG, label);
 
         firebase = new Firebase(Constants.FIREBASE_URL);
         Firebase firebaseUser = new Firebase(Constants.FIREBASE_USERS + firebase.getAuth().getUid());
