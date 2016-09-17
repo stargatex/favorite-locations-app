@@ -10,4 +10,7 @@ public class Constants {
     public static final int USER_LOCATION_MARKER = 100;
     public static final int USER_LOCATION_ADD_MARKER = 200;
     public static final int USER_LOCATION_FAV_MARKER = 300;
+    
+    public static final String LOCATION_LAT = "lat";
+    public static final String LOCATION_LNG = "lng";
 }
